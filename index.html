@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+    <style>
+      .drive:after{
+        content: "\000A";
+        white-space: pre;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- List of all drives connected to the pc -->
+    <div id="drive-list">
+
+    </div>
+
+  </body>
+</html>
