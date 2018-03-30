@@ -4,20 +4,21 @@
   "description": "A media management application that allows quick management and backup of files.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "rebuild": "./node_modules/.bin/electron-rebuild"
   },
   "repository": "https://github.com/Xadren/manage",
   "keywords": [
     "Media",
     "Management",
     "Backup",
-    "File System",
-    ""
+    "File System"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "~1.8.4",
+    "electron-builder": "^20.8.1",
     "electron-rebuild": "^1.7.3"
   },
   "dependencies": {
