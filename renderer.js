@@ -1,25 +1,69 @@
 // This file is required by the index.html file and will
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
-const drivelist = require('drivelist');
+const drivelist = require('./js/drivelist');
+// require('./js/drag');
+drivelist();
 
-// Get a list of all drives connected to the PC
-drivelist.list((error, drives) => { 
-    if(error) throw error;
+// var drives = document.getElementsByClassName('drive')
 
-    for(let i in drives){
-        const drive = drives[i];
-        drive_letter = drive.mountpoints[0].path;
-        drive_description = drive.description;
-        drive_size_in_gb = Math.floor(((drive.size/1000)/1000)/1000);
-        
-        const drive_span = document.createElement('span');
-        drive_span.className = "drive";
-        drive_span.id = i;
+// drives.addEventListener('dragstart', function(){
+//     console.log('dragging started');
+// }, false)
 
-        const drive_text = document.createTextNode(drive_letter + " " + drive_description + " : "  + drive_size_in_gb + "GB");
-        drive_span.appendChild(drive_text);
-        
-        const drive_list = document.getElementById('drive-list').appendChild(drive_span);
-    }
+
+document.addEventListener('dragstart', function(e){
+    const drive = e.srcElement;
+    // console.log(drive);
 })
+
+document.addEventListener('drag', function(e){
+    const drive = e.srcElement;
+    const drive_id = drive.getAttribute('id');
+    // console.log("Dragging drive " + drive_id);
+})
+
+document.getElementById('src-drives').addEventListener('dragover', function(e){
+    const drive = e.srcElement;
+    this.style.backgroundColor = '#000090';
+    // console.log(e);
+})
+
+document.getElementById('src-drives').addEventListener('dragleave', function(e){
+    const drive = e.srcElement;
+    this.style.backgroundColor = '#0000FF';
+    // console.log(e);
+})
+
+document.getElementById('src-drives').addEventListener('drop', function(e){
+    const drive = e.srcElement;
+    this.style.backgroundColor = '#0000FF';
+    document.getElementById('src-drives').appendChild(drive);
+    console.log(e);
+})
+
+
+
+
+
+
+// const dropzones = document.getElementsByClassName('dropzone');
+
+// for(const dropzone of dropzones){
+//     dropzone.addEventListener('dragover', dragover);
+//     dropzone.addEventListener('dragenter', dragenter);
+//     dropzone.addEventListener('drop', drop);
+// }
+
+// function dragover(e){
+//     console.log('dragover');
+//     e.preventDefault();
+// }
+
+// function dragenter(e){
+//     e.preventDefault();
+// }
+// function drop(e){
+//     console.log(drive, e)
+//     this.append(drive);
+// }

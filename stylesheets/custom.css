@@ -1,4 +1,23 @@
 body {
-  font-size: 14px; }
+  font-size: 16px;
+  margin: 0px;
+  padding: 0px; }
+
+.drive:after {
+  content: "\000A";
+  white-space: pre; }
+
+[draggable] {
+  cursor: move; }
+
+#src-drives {
+  background-color: blue;
+  width: 500px;
+  height: 500px; }
+
+#dest-drives {
+  background-color: red;
+  width: 500px;
+  height: 500px; }
 
 /*# sourceMappingURL=custom.css.map */
